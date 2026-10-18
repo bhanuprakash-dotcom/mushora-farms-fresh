@@ -1,0 +1,8 @@
+{% extends "store/base.html" %}
+{% block title %}Create Customer Account | Mushora Farms{% endblock %}
+{% block content %}
+<div class="authwrap"><div class="authcard"><span class="kicker">Join Mushora Farms</span><h1 style="font-size:34px;letter-spacing:-1px">Create account</h1><p class="muted">Create a customer account to place orders and track your requests.</p>
+<form method="post">{% csrf_token %}
+{% for field in form %}<div class="field"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% if field.help_text %}<div class="helptext">{{ field.help_text|safe }}</div>{% endif %}{% for error in field.errors %}<p class="notice">{{ error }}</p>{% endfor %}</div>{% endfor %}
+<button class="btn submit" type="submit">Create account</button></form><p>Already registered? <a href="{% url 'login' %}">Log in</a>.</p></div></div>
+{% endblock %}

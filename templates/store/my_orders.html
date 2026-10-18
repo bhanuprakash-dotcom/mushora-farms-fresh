@@ -1,0 +1,7 @@
+{% extends "store/base.html" %}
+{% block title %}My Orders | Mushora Farms{% endblock %}
+{% block content %}
+<section class="confirmation"><span class="kicker">Your account</span><h1 style="font-size:38px;letter-spacing:-1px">My orders</h1><p class="muted">Only orders placed while signed in to your account appear here.</p>
+{% for order in orders %}<div class="ordrow"><div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><strong>Order #{{ order.id }}</strong><strong>₹{{ order.total }}</strong></div><p class="muted">{{ order.created_at|date:"d M Y, g:i A" }} · {{ order.get_status_display }}</p>{% for item in order.items_json %}<div>{{ item.name }} ({{ item.weight }}) × {{ item.quantity }}</div>{% endfor %}<p><a href="{% url 'order_confirmation' order.id %}">View order details</a></p></div>{% empty %}<p>You haven't placed any orders yet. Browse the shop and place your first order.</p><a class="btn" href="/">Shop mushrooms</a>{% endfor %}
+</section>
+{% endblock %}

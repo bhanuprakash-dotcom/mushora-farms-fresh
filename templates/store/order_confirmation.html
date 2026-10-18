@@ -1,0 +1,5 @@
+{% extends "store/base.html" %}
+{% block title %}Order #{{ order.id }} | Mushora Farms{% endblock %}
+{% block content %}
+<section class="confirmation"><span class="kicker">Thank you for choosing local</span><h1>Order request saved 🍄</h1><p>Your reference number is <strong>#{{ order.id }}</strong>. Your estimated product total is <strong>₹{{ order.total }}</strong>. Delivery charges, stock and timing still need confirmation.</p><h3>Items</h3>{% for item in order.items_json %}<div class="cartline"><span>{{ item.name }} ({{ item.weight }}) × {{ item.quantity }}</span><strong>₹{{ item.subtotal }}</strong></div>{% endfor %}<p><strong>Payment preference:</strong> {{ order.get_payment_method_display }}</p><p><strong>Delivery:</strong> {{ order.address }}{% if order.area %}, {{ order.area }}{% endif %}</p><a class="btn" href="{{ whatsapp_url }}" target="_blank" rel="noopener">Send order to Mushora Farms on WhatsApp ↗</a><p class="fine">Tap the button and then press Send in WhatsApp. The order is saved in the site's database, but the farm only receives your WhatsApp message after you send it.</p><p><a href="/">← Back to shop</a></p></section>
+{% endblock %}

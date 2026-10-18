@@ -1,0 +1,10 @@
+{% extends "store/base.html" %}
+{% block title %}Customer Login | Mushora Farms{% endblock %}
+{% block content %}
+<div class="authwrap"><div class="authcard"><span class="kicker">Welcome back</span><h1 style="font-size:34px;letter-spacing:-1px">Customer login</h1><p class="muted">Sign in to place orders and see your order history.</p>
+<form method="post">{% csrf_token %}{% if form.errors %}<p class="notice">Username or password was not correct. Please try again.</p>{% endif %}
+<div class="field"><label for="id_username">Username</label><input id="id_username" name="username" required autocomplete="username"></div>
+<div class="field"><label for="id_password">Password</label><input id="id_password" name="password" type="password" required autocomplete="current-password"></div>
+{% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
+<button class="btn submit" type="submit">Log in</button></form><p>New customer? <a href="{% url 'register' %}">Create an account</a>.</p><p class="fine">Farm staff should use the separate <a href="/manage/login/">admin login</a>.</p></div></div>
+{% endblock %}
