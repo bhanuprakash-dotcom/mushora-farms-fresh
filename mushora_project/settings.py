@@ -5,11 +5,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "dev-only-change-this-before-deployment")
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 ALLOWED_HOSTS = [
-    "mushora-farms-2.onrender.com",
-    "mushora-farms-3.onrender.com",
+    "mushora-farms-fresh.onrender.com",
     ".onrender.com",
     "localhost",
     "127.0.0.1",
+]"127.0.0.1",
 ]
 CSRF_TRUSTED_ORIGINS = [
     origin.strip() for origin in os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",")
