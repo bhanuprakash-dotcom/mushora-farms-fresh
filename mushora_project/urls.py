@@ -11,7 +11,6 @@ admin.site.index_title = "Manage products, stock, prices and orders"
 
 urlpatterns = [
     path("manage/", admin.site.urls),
-    path("admin/", admin.site.urls),
     path("accounts/login/", auth_views.LoginView.as_view(template_name="store/login.html"), name="login"),
     path("accounts/logout/", auth_views.LogoutView.as_view(), name="logout"),
     path("accounts/register/", views.register, name="register"),
