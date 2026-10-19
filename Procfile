@@ -1,1 +1,1 @@
-web: gunicorn mushora_project.wsgi:application
+web: python manage.py migrate --noinput && gunicorn mushora_project.wsgi:application
